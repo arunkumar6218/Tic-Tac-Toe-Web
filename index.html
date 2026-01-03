@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe [ XO ]</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-dark text-white">
+
+    <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-4">Tic-Tac-Toe</h1>
+        
+        <div id="status" class="h4 mb-3 text-info">Waiting for players...</div>
+
+        <div class="game-grid" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <button class="btn btn-outline-light mt-4" onclick="resetGame()">Restart Match</button>
+    </div>
+
+    <div class="modal fade" id="setupModal" data-bs-backdrop="static" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-secondary text-white">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Choose Your Colors</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Player X Color:</label>
+                        <input type="color" id="p1Color" class="form-control form-control-color w-100" value="#00d4ff">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Player O Color:</label>
+                        <input type="color" id="p2Color" class="form-control form-control-color w-100" value="#ff4b2b">
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-primary w-100" onclick="startGame()">Start Match</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="resultModal" data-bs-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content bg-dark border-info text-center">
+            <div class="modal-body p-4">
+                <h2 id="resultMessage" class="mb-4"></h2>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" onclick="resetGame(false)">Play Again (Same Colors)</button>
+                    <button class="btn btn-outline-light btn-sm" onclick="resetGame(true)">New Match (Change Colors)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
